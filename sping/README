@@ -1,0 +1,3 @@
+sping - shell ping
+
+script to ping a host and notify only when changes state UP/DOWN. It does timestamp that event. Only tested on SUSE.
