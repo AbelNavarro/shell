@@ -7,3 +7,19 @@
     - name: install powerline
       zypper: name=powerline
       sudo: true
+
+    - name: hook powerline into bashrc
+      sudo: true
+      blockinfile:
+        path: /etc/bash.bashrc
+        block: |
+          if [ -f `which powerline-daemon` ]; then
+            powerline-daemon -q
+            POWERLINE_BASH_CONTINUATION=1
+            POWERLINE_BASH_SELECT=1
+            . /usr/share/powerline/bash/powerline.sh
+          fi
+
+          # Make ncurses work with putty-like terminals
+          export NCURSES_NO_UTF8_ACS=1
+
