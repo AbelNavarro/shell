@@ -2,8 +2,8 @@
 
 - hosts: 127.0.0.1
   connection: local
-  sudo: true
 
   tasks:
     - name: install powerline
       zypper: name=powerline
+      sudo: true
