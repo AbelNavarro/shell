@@ -17,5 +17,4 @@ fi
 
 ssh-copy-id root@$1
 scp /usr/local/bin/lnav root@$1:/usr/local/bin
-#ssh $1 "for node in \`grep HostName /root/.ssh/config | awk '{ print $2 }'\`; do scp /usr/local/bin/lnav \$node:/usr/local/bin/lnav; done"
 ssh root@$1 'for node in `grep HostName /root/.ssh/config | cut -d " " -f 6`; do scp /usr/local/bin/lnav $node:/usr/local/bin/lnav; done'
