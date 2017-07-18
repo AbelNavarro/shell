@@ -15,6 +15,11 @@ else
     echo "lnav found in this system"
 fi
 
-ssh-copy-id root@$1
-scp /usr/local/bin/lnav root@$1:/usr/local/bin
+if [ ! -f pass.txt ]; then
+    uname -a | cut -d ' ' -f1 | tr '[:upper:]' '[:lower:]' > pass.txt
+fi
+
+sshpass -f pass.txt ssh-copy-id root@$1
+
+ssh -q root@$1 [[ -f /usr/local/bin/lnav ]] || scp /usr/local/bin/lnav root@$1:/usr/local/bin
 ssh root@$1 'for node in `grep HostName /root/.ssh/config | cut -d " " -f 6`; do scp /usr/local/bin/lnav $node:/usr/local/bin/lnav; done'
