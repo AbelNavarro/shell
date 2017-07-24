@@ -1,4 +1,11 @@
 Copy lnav to crowbar machine and nodes
 
+It benefits from these options in ~/.ssh/config:
+
+Host *.domain
+    CheckHostIP no
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+
 Reference:
 http://lnav.readthedocs.io/en/latest/
