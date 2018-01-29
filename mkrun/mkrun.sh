@@ -36,6 +36,7 @@ if [[ $(vgdisplay) ]]; then
   echo "Volumes already setup."
 else
   echo "No volumes setup. Please run with 'setuphost' target first"
+  exit 1
 fi
 
 export cache_clouddata=1
