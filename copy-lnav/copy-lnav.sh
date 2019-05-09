@@ -7,9 +7,9 @@ fi
 
 if [ ! -f /usr/local/bin/lnav ]; then
     pushd /tmp
-    wget https://github.com/tstack/lnav/releases/download/v0.8.2/lnav-0.8.2-linux-64bit.zip -O /tmp/lnav-0.8.2-linux-64bit.zip
-    unzip lnav-0.8.2-linux-64bit.zip
-    sudo cp /tmp/lnav-0.8.2/lnav /usr/local/bin/
+    wget https://github.com/tstack/lnav/releases/download/v0.8.5/lnav-0.8.5-linux-64bit.zip -O /tmp/lnav-0.8.5-linux-64bit.zip
+    unzip lnav-0.8.5-linux-64bit.zip
+    sudo cp /tmp/lnav-0.8.5/lnav /usr/local/bin/
     popd
 else
     echo "lnav found in this system"
